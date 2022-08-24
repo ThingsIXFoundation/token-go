@@ -16,7 +16,7 @@ generate_bindings() {
   # extract abi from artifacts file
   jq .abi "$artifact_file" > "$abi_file"
 
-  echo "Generate token smart contract go bindings for package $pkg"
+  echo "Generate bindings for package $pkg"
   
   abigen --abi "$abi_file" --pkg $pkg --out "$pkg/bindings.go"
 }
@@ -28,9 +28,12 @@ git clone $THINGS_TOKEN_SMART_CONTRACT_REPO $work_dir --quiet
 
 # generate go-bindings for ThixM token contract
 generate_bindings $work_dir thixm ThixM
+generate_bindings $work_dir thix Thix
 
 # cleanup work directory
+echo "delete work directory"
 rm -rf $work_dir
 
 # install dependencies
+echo "tidy go dependencies"
 go mod tidy
