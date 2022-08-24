@@ -1,4 +1,4 @@
-module github.com/ThingsIXFoundation/thixm-token-go
+module github.com/ThingsIXFoundation/token-go
 
 go 1.19
 
