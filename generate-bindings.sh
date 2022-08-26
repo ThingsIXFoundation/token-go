@@ -7,7 +7,7 @@ THINGS_TOKEN_SMART_CONTRACT_REPO=git@github.com:ThingsIXFoundation/smart-contrac
 generate_bindings() {
   local work_dir=$1
   local pkg=$2
-  local artifact_file=$(find $work_dir -name "$3.json")
+  local artifact_file=$(find $work_dir/artifacts -name "$3.json")
   local abi_file="$work_dir/$3.abi"
 
   # ensure output directory exists
